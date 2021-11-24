@@ -8,7 +8,57 @@
     <title>Memory Card</title>
   </head>
   <body>
-    <div class="board"></div>
+    <div class="game-wrapper">
+      <div id="welcome-container" class="temp-screen">
+        <input
+          type="text"
+          placeholder="Please enter your name"
+          name="username"
+          id="username"
+        />
+        <div class="btn-container">
+          <button id="start-btn">Play</button>
+        </div>
+      </div>
+      <div class="info">
+        <div class="info-item" id="size">
+          <label for="level">Difficulty levels: </label>
+          <select name="level" id="level">
+            <option value="demo">Demo</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div class="info-item">
+          Flipped cards: <span class="highlighted" id="flipped-cards">0</span>
+        </div>
+        <div class="info-item">
+          Remaining pairs:
+          <span class="highlighted" id="remaining-pairs"></span>
+        </div>
+        <div class="info-item">
+          Time:
+          <span class="info-item highlighted" id="time">0:00</span>
+        </div>
+      </div>
+      <div class="board"></div>
+      <div class="temp-screen" id="game-over-container">
+        <h1>
+          Congratulations <span class="highlighted" id="result-name"></span>!
+        </h1>
+        <h2>Your results:</h2>
+        <div>Level:</div>
+        <div class="highlighted" id="result-level"></div>
+        <div>Time:</div>
+        <div class="highlighted" id="result-time"></div>
+        <div>Number of flips:</div>
+        <div class="highlighted" id="result-flips"></div>
+        <div class="btn-container">
+          <button id="new-game-btn">New game</button>
+        </div>
+      </div>
+    </div>
     <script src="./images.js"></script>
     <script src="./game.js"></script>
   </body>
