@@ -1,8 +1,14 @@
+@font-face {
+  font-family: Take;
+  src: url(./font/Take.ttf);
+}
+
 * {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: Take;
 }
 
 .temp-screen {
@@ -15,6 +21,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.highlighted {
+  color: #f537a0;
+  font-weight: 700;
 }
 
 #welcome-container {
@@ -36,13 +47,15 @@
 #welcome-container input {
   color: #03034b;
   text-align: center;
-  font-size: 3rem;
-  padding: .5rem 1rem;
-  border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   margin: 2rem 0;
+  width: 250px;
+  font-size: 2rem;
 }
 
-#start-btn, #new-game-btn {
+#start-btn,
+#new-game-btn {
   cursor: pointer;
   border: 0;
   background: #03034b;
@@ -60,12 +73,13 @@
   transition: all 0.3s linear;
 }
 
-#start-btn:before, #new-game-btn:before {
+#start-btn:before,
+#new-game-btn:before {
   content: "";
   width: 185px;
   height: 60px;
   border-radius: 4px;
-  background: #e60581;
+  background: #f537a0;
   position: absolute;
   left: 12px;
   top: 12px;
@@ -74,42 +88,63 @@
   transition: all 0.3s linear;
 }
 
-#start-btn:hover, #new-game-btn:hover {
+#start-btn:hover,
+#new-game-btn:hover {
   left: 12px;
   top: 12px;
   background: #03034b;
-  color: #e60581;
+  color: #f537a0;
 }
 
-#start-btn:hover:before, #new-game-btn:hover:before {
+#start-btn:hover:before,
+#new-game-btn:hover:before {
   left: -12px;
   top: -12px;
-  background-color: #e60581;
+  background-color: #f537a0;
 }
 
 .game-wrapper {
+  min-height: 100vh;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 5fr;
-      grid-template-rows: 1fr 5fr;
+  -ms-grid-columns: 25vw 75vw;
+      grid-template-columns: 25vw 75vw;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #03034b;
+  color: white;
+  font-size: 2rem;
+}
+
+.game-wrapper .info {
+  padding-left: 20px;
+}
+
+.game-wrapper .info select {
+  background-color: #f537a0;
+  font-size: 1.7rem;
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 0) and (max-width: 374px), only screen and (min-width: 375px) and (max-width: 576px), only screen and (min-width: 577px) and (max-width: 768px) {
+  .game-wrapper .info select {
+    font-size: 1rem;
+  }
 }
 
 .game-wrapper .board {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -ms-grid;
+  display: grid;
   -webkit-perspective: 1000px;
           perspective: 1000px;
 }
 
 .game-wrapper .board .card {
-  width: 40px;
-  height: 60px;
   margin: 3px;
   position: relative;
   -webkit-transform-style: preserve-3d;
@@ -118,6 +153,8 @@
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
+  border: 1px solid #f537a0;
+  border-radius: 5px;
 }
 
 .game-wrapper .board .card .front-face,
@@ -127,6 +164,7 @@
   position: absolute;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  border-radius: 5px;
 }
 
 .game-wrapper .board .card .front-face {
@@ -137,6 +175,75 @@
 .game-wrapper .board .card.flip {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+.game-wrapper .board.demo {
+  -ms-grid-columns: (30vw)[3];
+      grid-template-columns: repeat(3, 30vw);
+  -ms-grid-rows: (40vw)[2];
+      grid-template-rows: repeat(2, 40vw);
+}
+
+.game-wrapper .board.demo.landscape {
+  -ms-grid-columns: (25vh)[3];
+      grid-template-columns: repeat(3, 25vh);
+  -ms-grid-rows: (35vh)[2];
+      grid-template-rows: repeat(2, 35vh);
+}
+
+.game-wrapper .board.easy {
+  -ms-grid-columns: (17vw)[5];
+      grid-template-columns: repeat(5, 17vw);
+  -ms-grid-rows: (23vw)[4];
+      grid-template-rows: repeat(4, 23vw);
+}
+
+.game-wrapper .board.easy.landscape {
+  -ms-grid-columns: (15vh)[5];
+      grid-template-columns: repeat(5, 15vh);
+  -ms-grid-rows: (22vh)[4];
+      grid-template-rows: repeat(4, 22vh);
+}
+
+.game-wrapper .board.medium {
+  -ms-grid-columns: (14vw)[6];
+      grid-template-columns: repeat(6, 14vw);
+  -ms-grid-rows: (18vw)[5];
+      grid-template-rows: repeat(5, 18vw);
+}
+
+.game-wrapper .board.medium.landscape {
+  -ms-grid-columns: (13vh)[6];
+      grid-template-columns: repeat(6, 13vh);
+  -ms-grid-rows: (18vh)[5];
+      grid-template-rows: repeat(5, 18vh);
+}
+
+.game-wrapper .board.hard {
+  -ms-grid-columns: (15vw)[6];
+      grid-template-columns: repeat(6, 15vw);
+  -ms-grid-rows: (18vw)[7];
+      grid-template-rows: repeat(7, 18vw);
+}
+
+.game-wrapper .board.hard.landscape {
+  -ms-grid-columns: (12vh)[7];
+      grid-template-columns: repeat(7, 12vh);
+  -ms-grid-rows: (15vh)[6];
+      grid-template-rows: repeat(6, 15vh);
+}
+
+.game-wrapper.portrait {
+  -ms-grid-columns: none;
+      grid-template-columns: none;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+}
+
+@media only screen and (min-width: 0) and (max-width: 374px), only screen and (min-width: 375px) and (max-width: 576px), only screen and (min-width: 577px) and (max-width: 768px) {
+  .game-wrapper {
+    font-size: 1rem;
+  }
 }
 
 #game-over-container {
@@ -151,6 +258,27 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #e60581;
+}
+
+#game-over-container .game-over {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#game-over-container .game-over h1 {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

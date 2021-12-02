@@ -10,12 +10,8 @@
   <body>
     <div class="game-wrapper">
       <div id="welcome-container" class="temp-screen">
-        <input
-          type="text"
-          placeholder="Please enter your name"
-          name="username"
-          id="username"
-        />
+        <h1 class="highlighted">Memory Card Game</h1>
+        <input type="text" placeholder="Name" name="username" id="username" />
         <div class="btn-container">
           <button id="start-btn">Play</button>
         </div>
@@ -44,16 +40,18 @@
       </div>
       <div class="board"></div>
       <div class="temp-screen" id="game-over-container">
-        <h1>
-          Congratulations <span class="highlighted" id="result-name"></span>!
-        </h1>
-        <h2>Your results:</h2>
-        <div>Level:</div>
-        <div class="highlighted" id="result-level"></div>
-        <div>Time:</div>
-        <div class="highlighted" id="result-time"></div>
-        <div>Number of flips:</div>
-        <div class="highlighted" id="result-flips"></div>
+        <div class="game-over">
+          <h1>
+            Congratulations <span class="highlighted" id="result-name"></span> !
+          </h1>
+          <h2>Your results:</h2>
+          <div>Level:</div>
+          <div class="highlighted" id="result-level"></div>
+          <div>Time:</div>
+          <div class="highlighted" id="result-time"></div>
+          <div>Number of flips:</div>
+          <div class="highlighted" id="result-flips"></div>
+        </div>
         <div class="btn-container">
           <button id="new-game-btn">New game</button>
         </div>

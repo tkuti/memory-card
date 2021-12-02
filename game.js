@@ -1,3 +1,4 @@
+const _wrapper = document.querySelector('.game-wrapper')
 const _welcomeContainer = document.querySelector('#welcome-container')
 const _startBtn = document.querySelector('#start-btn')
 const _usernameInput = document.querySelector('#username')
@@ -10,6 +11,8 @@ const _time = document.querySelector("#time")
 const _gameOverContainer = document.querySelector('#game-over-container')
 const _newGameBtn = document.querySelector('#new-game-btn')
 
+let levelClass = 'demo'
+let screenType = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'
 let numberOfFlippedCards
 let numberOfRemainingPairs
 let timer
@@ -33,6 +36,13 @@ _levelSelect.addEventListener('change', (e) => {
     setLevel(e.target.value)
 })
 
+window.addEventListener('resize', () => {
+    _wrapper.classList.remove(screenType)
+    _board.classList.remove(screenType)
+    window.innerWidth > window.innerHeight ? screenType = 'landscape' : screenType = 'portrait'
+    setLevel(levelClass)
+}) 
+
 function setLevel(level) {
     resetGame()
     switch (level) {
@@ -41,23 +51,27 @@ function setLevel(level) {
             images = imagesOfDogs.slice(0, 6)
             break
         case 'easy':
-            numberOfRemainingPairs = 9
-            images = imagesOfDogs.slice(0, 18)
+            numberOfRemainingPairs = 10
+            images = imagesOfDogs.slice(0, 20)
             break
         case 'medium':
-            numberOfRemainingPairs = 14
-            images = imagesOfDogs.slice(0, 28)
+            numberOfRemainingPairs = 15
+            images = imagesOfDogs.slice(0, 30)
             break
         case 'hard':
-            numberOfRemainingPairs = 20
+            numberOfRemainingPairs = 21
             images = [...imagesOfDogs]
             break
     }
+    levelClass = level
     _remainingPairs.innerHTML = numberOfRemainingPairs
     generateCards()
 }
 
 function generateCards() {
+    _board.classList.add(levelClass)
+    _board.classList.add(screenType)
+    _wrapper.classList.add(screenType)
     images.forEach(img => createCard(img))
     const _cards = document.querySelectorAll('.card')
     _cards.forEach(card => card.addEventListener('click', flipCard))
@@ -127,6 +141,7 @@ function resetGame() {
     numberOfFlippedCards = 0
     _flippedCards.innerHTML = numberOfFlippedCards
     _board.innerHTML = ""
+    _board.classList.remove(levelClass)
     resetBoard()
     stopTime()
 }

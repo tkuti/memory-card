@@ -96,6 +96,14 @@ const imagesOfDogs = [
         src: "./images/dogs/french.jpg"
     },
     {
+        name: "german",
+        src: "./images/dogs/german.jpg"
+    },
+    {
+        name: "german",
+        src: "./images/dogs/german.jpg"
+    },
+    {
         name: "golden",
         src: "./images/dogs/golden.jpg"
     },
