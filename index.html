@@ -15,6 +15,9 @@
         <div class="btn-container">
           <button id="start-btn">Play</button>
         </div>
+        <div class="btn-container">
+          <button class="results-btn">Results</button>
+        </div>
       </div>
       <div class="info">
         <div class="info-item" id="size">
@@ -35,7 +38,7 @@
         </div>
         <div class="info-item">
           Time:
-          <span class="info-item highlighted" id="time">0:00</span>
+          <span class="info-item highlighted" id="time">00:00</span>
         </div>
       </div>
       <div class="board"></div>
@@ -55,7 +58,34 @@
         <div class="btn-container">
           <button id="new-game-btn">New game</button>
         </div>
+        <div class="btn-container">
+          <button class="results-btn">Results</button>
+        </div>
       </div>
+    </div>
+    <div class="results-container">
+      <div class="btns">
+        <div class="level-btns">
+          <button class="result-type-btn active">Demo</button>
+          <button class="result-type-btn">Easy</button>
+          <button class="result-type-btn">Medium</button>
+          <button class="result-type-btn">Hard</button>
+        </div>
+        <button class="results-close-btn">Close</button>
+      </div>
+      <div>
+        <table class="table">
+          <thead>
+            <th>#</th>
+            <th>Name</th>
+            <th>Time</th>
+            <th>Flips</th>
+            <th>Level</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
     </div>
     <script src="./images.js"></script>
     <script src="./game.js"></script>

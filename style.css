@@ -281,4 +281,69 @@
 #game-over-container .game-over h1 {
   text-align: center;
 }
+
+.results-btn {
+  position: relative;
+  top: 45px;
+  height: 30px;
+  width: 80px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #f537a0;
+  border: 1px solid #f537a0;
+  border-radius: 4px;
+}
+
+.results-container {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  background: black;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.results-container .btns {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.results-container .table, .results-container th, .results-container td {
+  border: 1px solid #f537a0;
+}
+
+.results-container .table {
+  border-collapse: collapse;
+  color: white;
+}
+
+.results-container th {
+  color: #f537a0;
+  padding: 5px 10px;
+}
+
+.results-container td {
+  max-width: 100px;
+  overflow: hidden;
+}
+
+.results-container .active {
+  color: #f537a0;
+}
 /*# sourceMappingURL=style.css.map */

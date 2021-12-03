@@ -198,3 +198,53 @@ $secondary-color: #f537a0;
     }
   }
 }
+
+.results-btn {
+  position: relative;
+  top: 45px;
+  height: 30px;
+  width: 80px;
+  background-color: rgba(black, .9);
+  color: $secondary-color;
+  border: 1px solid $secondary-color;
+  border-radius: 4px;
+}
+
+.results-container {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  background: black;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  .btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+  .table, th, td {
+    border: 1px solid $secondary-color;
+  }
+  .table {
+    border-collapse: collapse;
+    color: white;
+  }
+  th {
+    color: $secondary-color;
+    padding: 5px 10px;
+  }
+  td {
+    max-width: 100px;
+    overflow: hidden;
+  }
+  .active {
+    color: $secondary-color;
+  }
+
+}
+
