@@ -128,7 +128,7 @@
   border-radius: 8px;
 }
 
-@media only screen and (min-width: 0) and (max-width: 374px), only screen and (min-width: 375px) and (max-width: 576px), only screen and (min-width: 577px) and (max-width: 768px) {
+@media only screen and (min-width: 0) and (max-width: 768px) {
   .game-wrapper .info select {
     font-size: 1rem;
   }
@@ -240,7 +240,7 @@
       grid-template-rows: auto auto;
 }
 
-@media only screen and (min-width: 0) and (max-width: 374px), only screen and (min-width: 375px) and (max-width: 576px), only screen and (min-width: 577px) and (max-width: 768px) {
+@media only screen and (min-width: 0) and (max-width: 768px) {
   .game-wrapper {
     font-size: 1rem;
   }
@@ -276,6 +276,7 @@
           align-items: center;
   padding: 30px 10px;
   background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 5px;
 }
 
 #game-over-container .game-over h1 {
@@ -311,6 +312,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 0) and (max-width: 768px) {
+  .results-container {
+    font-size: 1rem;
+  }
 }
 
 .results-container .btns {
@@ -322,6 +330,21 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 10px 15px;
+}
+
+.results-container .btns .result-type-btn, .results-container .btns .results-close-btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.results-container .btns .result-type-btn:hover, .results-container .btns .results-close-btn:hover {
+  color: #f537a0;
+}
+
+@media only screen and (min-width: 0) and (max-width: 768px) {
+  .results-container .btns .result-type-btn, .results-container .btns .results-close-btn {
+    font-size: 1rem;
+  }
 }
 
 .results-container .table, .results-container th, .results-container td {
@@ -339,8 +362,14 @@
 }
 
 .results-container td {
-  max-width: 100px;
-  overflow: hidden;
+  max-width: auto;
+}
+
+@media only screen and (min-width: 0) and (max-width: 768px) {
+  .results-container td {
+    max-width: 120px;
+    overflow: hidden;
+  }
 }
 
 .results-container .active {

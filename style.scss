@@ -1,9 +1,4 @@
-$xs: "only screen and (min-width: 0) and (max-width: 374px)";
-$sm: "only screen and (min-width: 375px) and (max-width: 576px)";
-$md: "only screen and (min-width: 577px) and (max-width: 768px)";
-$lg: "only screen and (min-width: 769px) and (max-width: 992px)";
-$xl: "only screen and (min-width: 993px) and (max-width: 1200px)";
-$xxl: "only screen and (min-width: 1201px)";
+$small: "only screen and (min-width: 0) and (max-width: 768px)";
 
 $primary-color: #03034b;
 $secondary-color: #f537a0;
@@ -108,7 +103,7 @@ $secondary-color: #f537a0;
       background-color: $secondary-color;
       font-size: 1.7rem;
       border-radius: 8px;
-      @media #{$xs}, #{$sm}, #{$md} {
+      @media #{$small}  {
         font-size: 1rem;
       }
     }
@@ -176,7 +171,7 @@ $secondary-color: #f537a0;
     grid-template-columns: none;
     grid-template-rows: auto auto;
   }
-  @media #{$xs}, #{$sm}, #{$md} {
+  @media #{$small} {
     font-size: 1rem;
   }
 }
@@ -193,6 +188,7 @@ $secondary-color: #f537a0;
     align-items: center;
     padding: 30px 10px;
     background-color: rgba(black, .9);
+    border-radius: 5px;
     h1 {
       text-align: center;
     }
@@ -221,11 +217,25 @@ $secondary-color: #f537a0;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  font-size: 1.5rem;
+  @media #{$small} {
+    font-size: 1rem;
+  }
   .btns {
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 10px 15px;
+    .result-type-btn, .results-close-btn {
+      cursor: pointer;
+      font-size: 1.5rem;
+      &:hover {
+        color: $secondary-color;
+      }
+      @media #{$small} {
+        font-size: 1rem;
+      }
+    }
   }
   .table, th, td {
     border: 1px solid $secondary-color;
@@ -239,8 +249,11 @@ $secondary-color: #f537a0;
     padding: 5px 10px;
   }
   td {
-    max-width: 100px;
-    overflow: hidden;
+    max-width: auto;
+    @media #{$small} {
+      max-width: 120px;
+      overflow: hidden;
+    }
   }
   .active {
     color: $secondary-color;
