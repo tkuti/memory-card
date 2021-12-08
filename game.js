@@ -115,6 +115,8 @@ function setLevel(level) {
   }
   levelClass = level
   _remainingPairs.innerHTML = numberOfRemainingPairs
+  images.sort(() => Math.random() - 0.5)
+
   generateCards()
 }
 
@@ -180,10 +182,8 @@ function unflipCards() {
 }
 
 function resetBoard() {
-  ;[hasFlippedCard, lockBoard] = [false, false][(firstCard, secondCard)] = [
-    null,
-    null,
-  ]
+  [hasFlippedCard, lockBoard] = [false, false]
+  [firstCard, secondCard] = [ null, null ]
 }
 
 function resetGame() {
