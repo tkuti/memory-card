@@ -118,6 +118,7 @@ $secondary-color: #f537a0;
       transition: transform 0.5s;
       border: 1px solid $secondary-color;
       border-radius: 5px;
+      cursor: pointer;
       .front-face,
       .back-face {
         width: 100%;
@@ -131,6 +132,9 @@ $secondary-color: #f537a0;
       }
       &.flip {
         transform: rotateY(180deg);
+      }
+      &:hover {
+        box-shadow: 0 0 10px $secondary-color;
       }
     }
     &.demo {
@@ -203,6 +207,10 @@ $secondary-color: #f537a0;
   color: $secondary-color;
   border: 1px solid $secondary-color;
   border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .results-container {

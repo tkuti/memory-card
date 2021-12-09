@@ -155,6 +155,7 @@
   transition: transform 0.5s, -webkit-transform 0.5s;
   border: 1px solid #f537a0;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .game-wrapper .board .card .front-face,
@@ -175,6 +176,11 @@
 .game-wrapper .board .card.flip {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+.game-wrapper .board .card:hover {
+  -webkit-box-shadow: 0 0 10px #f537a0;
+          box-shadow: 0 0 10px #f537a0;
 }
 
 .game-wrapper .board.demo {
@@ -292,6 +298,12 @@
   color: #f537a0;
   border: 1px solid #f537a0;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.results-btn:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .results-container {
