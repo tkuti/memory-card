@@ -29,25 +29,27 @@ let hasFlippedCard = false
 let lockBoard = false
 let firstCard, secondCard
 let results
+const savedResults = localStorage.getItem('results')
+savedResults ? (results = JSON.parse(savedResults)) : (results = [])
 
 _startBtn.addEventListener('click', () => {
   _welcomeContainer.style.display = 'none'
   username = _usernameInput.value
-  setLevel('demo')
+  startGame('demo')
 })
 
 _newGameBtn.addEventListener('click', () => {
   _gameOverContainer.style.display = 'none'
-  setLevel(_levelSelect.value)
+  startGame(_levelSelect.value)
 })
 
-_levelSelect.addEventListener('change', (e) => {
-  setLevel(e.target.value)
+_levelSelect.addEventListener('change', e => {
+  startGame(e.target.value)
 })
 
-_animalSelect.addEventListener('change', (e) => {
+_animalSelect.addEventListener('change', e => {
   animalType = e.target.value
-  setLevel(levelClass)
+  startGame(levelClass)
 })
 
 window.addEventListener('resize', () => {
@@ -56,13 +58,13 @@ window.addEventListener('resize', () => {
   window.innerWidth > window.innerHeight
     ? (screenType = 'landscape')
     : (screenType = 'portrait')
-  setLevel(levelClass)
+  startGame(levelClass)
 })
 
-_resultsBtns.forEach((btn) =>
+_resultsBtns.forEach(btn =>
   btn.addEventListener('click', () => {
     _resultsContainer.style.display = 'flex'
-    _resultTypeBtns.forEach((bt) => {
+    _resultTypeBtns.forEach(bt => {
       if (bt.innerHTML !== 'Demo') {
         bt.classList.remove('active')
       } else {
@@ -73,9 +75,9 @@ _resultsBtns.forEach((btn) =>
   })
 )
 
-_resultTypeBtns.forEach((btn) =>
-  btn.addEventListener('click', (e) => {
-    _resultTypeBtns.forEach((bt) => {
+_resultTypeBtns.forEach(btn =>
+  btn.addEventListener('click', e => {
+    _resultTypeBtns.forEach(bt => {
       bt.classList.remove('active')
     })
     e.target.classList.add('active')
@@ -83,16 +85,14 @@ _resultTypeBtns.forEach((btn) =>
   })
 )
 
-_resultsCloseBtns.forEach((btn) =>
+_resultsCloseBtns.forEach(btn =>
   btn.addEventListener('click', () => {
     _resultsContainer.style.display = 'none'
   })
 )
 
-const savedResults = localStorage.getItem('results')
-savedResults ? (results = JSON.parse(savedResults)) : (results = [])
 
-function setLevel(level) {
+function startGame(level) {
   resetGame()
   let animalTypeImages = animalType === 'dogs' ? imagesOfDogs : imagesOfCats
   switch (level) {
@@ -124,9 +124,11 @@ function generateCards() {
   _board.classList.add(levelClass)
   _board.classList.add(screenType)
   _wrapper.classList.add(screenType)
-  images.forEach((img) => createCard(img))
+
+  images.forEach(img => createCard(img))
+
   const _cards = document.querySelectorAll('.card')
-  _cards.forEach((card) => card.addEventListener('click', flipCard))
+  _cards.forEach(card => card.addEventListener('click', flipCard))
 }
 
 function createCard(img) {
@@ -241,7 +243,7 @@ function saveResult() {
     name: username,
     time: finalTime,
     flips: _flippedCards.innerHTML,
-    level: _levelSelect.value,
+    level: _levelSelect.value
   }
   results.push(newResult)
   localStorage.setItem('results', JSON.stringify(results))
@@ -260,7 +262,7 @@ function sortResults(filteredResults) {
 }
 
 function generateResultTable(level) {
-  const filteredResults = results.filter((res) => res.level === level)
+  const filteredResults = results.filter(res => res.level === level)
   sortResults(filteredResults)
   const _resultTableBody = document.querySelector('tbody')
   _resultTableBody.innerHTML = ''
