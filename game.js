@@ -58,7 +58,8 @@ window.addEventListener('resize', () => {
   window.innerWidth > window.innerHeight
     ? (screenType = 'landscape')
     : (screenType = 'portrait')
-  startGame(levelClass)
+    _wrapper.classList.add(screenType)
+    _board.classList.add(screenType)
 })
 
 _resultsBtns.forEach(btn =>
